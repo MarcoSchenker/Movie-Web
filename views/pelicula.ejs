@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movie.title %></title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
     /* General styles for the body */
     body {
       font-family: 'Arial', sans-serif;
@@ -55,6 +59,237 @@
       list-style: none;
       padding: 0;
       margin: 10px 0 20px;
+    }
+
+    li {
+      font-size: 18px;
+      color: #555555;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    li:hover {
+      background-color: #eef7ff;
+      transform: translateY(-3px);
+    }
+    .inicio {
+      position: absolute;
+      left: 40px;
+      top: 20px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      background-color: #0078d4;
+      color: white;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 50px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+      overflow: hidden;
+    }
+
+    .inicio:hover {
+      background-color: #0056b3;
+      position: absolute;
+      left: 40px;
+      top: 20px;
+    }
+    .logo{
+      width: 60%;
+      height: auto;
+    }
+
+    /* Links for director, writer, actor */
+    a {
+      text-decoration: none;
+      color: #0078d4;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #0056b3;
+    }
+
+    /* Overview section with background and padding */
+    #overview {
+      background-color: #eef7ff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-size: 18px;
+      color: #333333;
+    }
+
+    /* Button back to homepage */
+    #inicio {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #inicio a {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #0078d4;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #inicio a:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      p, li {
+        font-size: 16px;
+      }
+    }
+       /* Formulario de comentario */
+    .review-section {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #eef7ff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-form label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .review-form input[type="number"],
+    .review-form textarea {
+      width: 97.8%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    .review-form button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .review-form button:hover {
+      background-color: #45a049;
+    }
+
+    /* Caja de cada comentario */
+    .comment-box {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-left: 5px solid #0078d4;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment-box .user-info {
+      font-weight: bold;
+      color: #0078d4;
+    }
+
+    .comment-box .user-rating {
+      color: #ff9f00;
+      font-weight: bold;
+    }
+
+    .comment-box .comment-text {
+      margin-top: 8px;
+      font-style: italic;
+      color: #333;
+    }
+
+    .comment-box .comment-date {
+      font-size: 0.85em;
+      color: #777;
+    }
+
+    /* Container for the content */
+    .container {
+      width: 100%;
+      max-width: 900px;
+      background-color: #ffffff;
+      margin: 20px 0;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    /* Title styles */
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Subtitles (h3) */
+    h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+    }
+
+    /* Paragraph styles */
+    p {
+      font-size: 18px;
+      color: #333333;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* List styles */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 20px;
+    }
+
+    .success-message {
+        background-color: #edfbd8;
+        color: #2b641e;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: solid 1px #84d65a;
+        border-radius: 4px;
+        text-align: center;
     }
 
     li {
@@ -138,159 +373,157 @@
       }
     }
 
-
-
-  </style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= movie.title %></title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* General styles for the body */
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f5f5f5;
-      color: #333333;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
+    /* Estilos para la calificación de estrellas */
+    .star-rating {
+        direction: rtl;
+        display: flex;
+        justify-content: center;
+        font-size: 2em;
     }
 
-    /* Container for the content */
-    .container {
-      width: 100%;
-      max-width: 900px;
-      background-color: #ffffff;
-      margin: 20px 0;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      text-align: left;
+    .star-rating input[type="radio"] {
+        display: none;
     }
 
-    /* Title styles */
-    h1 {
-      font-size: 36px;
-      text-align: center;
-      margin-bottom: 20px;
+    .star-rating label {
+        color: #ccc;
+        cursor: pointer;
     }
 
-    /* Subtitles (h3) */
-    h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      padding-bottom: 5px;
+    /* Cambiar el color de las estrellas al pasar el cursor y al seleccionar */
+    .star-rating input[type="radio"]:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+        color: #FFD700;
+    }
+    /* From Uiverse.io by barisdogansutcu */
+    label.container {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 10px 15px 10px 10px;
+        cursor: pointer;
+        user-select: none;
+        border-radius: 10px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        color: black;
+        max-width: 175px;
     }
 
-    /* Paragraph styles */
-    p {
-      font-size: 18px;
-      color: #333333;
-      line-height: 1.6;
-      margin-bottom: 20px;
+    input[name="favorite-checkbox"] {
+        display: none;
     }
 
-    /* List styles */
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 20px;
+    input[name="favorite-checkbox"]:checked + label svg {
+        fill: hsl(0deg 100% 50%);
+        stroke: hsl(0deg 100% 50%);
+        animation: heartButton 1s;
     }
 
-    li {
-      font-size: 18px;
-      color: #555555;
-      margin-bottom: 10px;
-      padding: 10px;
-      background-color: #f9f9f9;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, background-color 0.3s ease;
+    @keyframes heartButton {
+        0% { transform: scale(1); }
+        25% { transform: scale(1.3); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.3); }
+        100% { transform: scale(1); }
     }
 
-    li:hover {
-      background-color: #eef7ff;
-      transform: translateY(-3px);
+    input[name="favorite-checkbox"] + label .action {
+        position: relative;
+        overflow: hidden;
+        display: grid;
     }
 
-    /* Links for director, writer, actor */
-    a {
-      text-decoration: none;
-      color: #0078d4;
-      font-weight: bold;
-      transition: color 0.3s ease;
+    input[name="favorite-checkbox"] + label .action span {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        transition: all .5s;
     }
 
-    a:hover {
-      color: #0056b3;
+    input[name="favorite-checkbox"] + label .action span.option-1 {
+        transform: translate(0px,0%);
+        opacity: 1;
     }
 
-    /* Overview section with background and padding */
-    #overview {
-      background-color: #eef7ff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      line-height: 1.6;
-      font-size: 18px;
-      color: #333333;
+    input[name="favorite-checkbox"]:checked + label .action span.option-1 {
+        transform: translate(0px,-100%);
+        opacity: 0;
     }
 
-    /* Button back to homepage */
-    #inicio {
-      text-align: center;
-      margin-top: 30px;
+    input[name="favorite-checkbox"] + label .action span.option-2 {
+        transform: translate(0px,100%);
+        opacity: 0;
     }
 
-    #inicio a {
-      display: inline-block;
-      padding: 12px 30px;
-      background-color: #0078d4;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      font-size: 16px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+    input[name="favorite-checkbox"]:checked + label .action span.option-2 {
+        transform: translate(0px,0%);
+        opacity: 1;
     }
 
-    #inicio a:hover {
-      background-color: #0056b3;
-      transform: translateY(-3px);
-    }
-
-    /* Responsive design for smaller screens */
-    @media (max-width: 600px) {
-      .container {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-
-      h3 {
-        font-size: 20px;
-      }
-
-      p, li {
-        font-size: 16px;
-      }
-    }
-
-
-
-  </style>
+    </style>
 </head>
 <body>
+  <header>
+    <a class="inicio" href="/">
+        <img class="logo" src="\imgs\casona.png" alt="Inicio" >
+    </a>
+</header>
 <div class="container">
+        <% if (successMessage) { %>
+            <div class="success-message">
+                <%= successMessage %>
+            </div>
+        <% } %>
   <h1><%= movie.title %></h1>
-  <h3>Fecha: <%= movie.release_date %></h3>
+            <!-- Botón de favoritos dinámico -->
+            <div class="favorite-section">
+                <% if (user) { %> <!-- Mostrar solo si user está autenticado -->
+                <input type="checkbox" id="favorite"
+                       name="favorite-checkbox"
+                       value="favorite-button"
+                        <%= isFavorite ? 'checked' : '' %>
+                       onclick="toggleFavorite(<%= movie.id %>)">
 
+                <label for="favorite" class="container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <div class="action">
+                        <span class="option-1">Add to Favorites</span>
+                        <span class="option-2">Added to Favorites</span>
+                    </div>
+                </label>
+                <% } else { %>
+                    <p><a href="/login">Inicia sesión</a> para agregar o quitar de favoritos.</p>
+                <% } %>
+            </div>
+  <h3>Fecha: <%= movie.release_date %></h3>
+  <h3>Puntaje Promedio: <%= movie.average_rating ? movie.average_rating.toFixed(2) : 'Sin calificación' %></h3>
+            <div class="review-section">
+    <% if (user) { %>
+      <h3>Deja tu puntuación y comentario</h3>
+      <form action="/movies" method="POST" class="review-form">
+        <input type="hidden" name="movie_id" value="<%= movie.id %>">
+        <label for="rating">Puntuación:</label>
+          <div class="star-rating">
+              <% for (let i = 5; i >= 1; i--) { %>
+                  <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>"
+                          <%= movie.rating == i ? 'checked' : '' %>>
+                  <label for="star<%= i %>">★</label>
+              <% } %>
+          </div>
+          <!-- <input type="number" id="rating" name="rating" min="1" max="10" required> -->
+        <label for="review">Comentario:</label>
+        <textarea id="review" name="review" rows="4" placeholder="Escribe tu opinión aquí..." required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    <% } else { %>
+      <p><a href="/login">Inicia sesión</a> para dejar un comentario o puntuación.</p>
+    <% } %>
+  </div>
   <h3>Géneros:</h3>
   <ul>
     <% movie.genres.forEach((genre) => { %>
@@ -361,8 +594,47 @@
       <li><%= keyword %></li>
     <% }); %>
   </ul>
-
+  <!-- Mostrar comentarios de otros usuarios -->
+  <h3>Comentarios de otros usuarios</h3>
+<% if (comments && comments.length > 0) { %>
+  <ul>
+    <% comments.forEach((comment) => { %>
+      <li>
+        <strong><%= comment.user_name %></strong> - 
+        <small><%= comment.date %></small>
+        <p>Puntuación: <%= comment.rating %> estrellas</p>
+        <p><%= comment.review %></p>
+      </li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No hay comentarios para esta película.</p>
+<% } %>
   <div id="inicio"><a href="/">Inicio</a></div>
 </div>
 </body>
+<script>
+    function toggleFavorite(movieId) {
+        const isFavorite = document.getElementById('favorite').checked;
+        const url = isFavorite ? '/favorites/add' : '/favorites/remove';
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                movie_id: movieId
+            })
+        }).then(response => {
+            if (response.ok) {
+                console.log(isFavorite ? 'Agregado a favoritos' : 'Eliminado de favoritos');
+            } else {
+                console.error('Error al cambiar el estado de favorito');
+            }
+        }).catch(error => {
+            console.error('Error de red:', error);
+        });
+    }
+</script>
 </html>

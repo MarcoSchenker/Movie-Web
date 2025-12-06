@@ -1,0 +1,708 @@
+Index: views/signup.ejs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n    <title>Sign Up de Usuario</title>\r\n    <link rel=\"stylesheet\" href=\"/styles.css\">\r\n    <style>\r\n        \r\n        /* Centra el formulario en la página */\r\n        body {\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            height: 100vh;\r\n            margin: 0;\r\n            font-family: Arial, sans-serif;\r\n            background-color: #f4f4f4;\r\n        }\r\n\r\n        .inicio {\r\n            position: absolute;\r\n            left: 40px;\r\n            top: 20px;\r\n            width: 50px;\r\n            height: 50px;\r\n            display: flex;\r\n            background-color: #2a77b6;\r\n            color: white;\r\n            align-items: center;\r\n            justify-content: center;\r\n            text-decoration: none;\r\n            border-radius: 50px;\r\n            margin-top: 20px;\r\n            transition: background-color 0.3s ease;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .inicio:hover {\r\n            background-color: #0056b3;\r\n            position: absolute;\r\n            left: 40px;\r\n            top: 20px;\r\n        }\r\n        .logo{\r\n            width: 60%;\r\n            height: auto;\r\n        }\r\n\r\n        /* Estilo del contenedor del formulario */\r\n        form {\r\n            background-color: #fff;\r\n            padding: 50px;\r\n            border-radius: 8px;\r\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n            width: 300px;\r\n            text-align: center;\r\n        }\r\n\r\n        /* Estilo de los elementos del formulario */\r\n        h2 {\r\n            margin-bottom: 20px;\r\n        }\r\n\r\n        label, input {\r\n            display: block;\r\n            width: 94%;\r\n            margin-bottom: 10px;\r\n            text-align: left;\r\n        }\r\n\r\n        input {\r\n            padding: 8px;\r\n            font-size: 16px;\r\n            border: 1px solid #ccc;\r\n            border-radius: 4px;\r\n        }\r\n\r\n        button {\r\n            width: 50%;\r\n            padding: 10px;\r\n            background-color: #4CAF50;\r\n            color: white;\r\n            border: none;\r\n            border-radius: 4px;\r\n            font-size: 16px;\r\n            cursor: pointer;\r\n        }\r\n\r\n        button:hover {\r\n            background-color: #45a049;\r\n        }\r\n\r\n        /* Estilo del mensaje de error */\r\n        .error-message {\r\n            color: red;\r\n            margin-bottom: 10px;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <header>\r\n\r\n        <a class=\"inicio\" href=\"/\">\r\n            <img class=\"logo\" src=\"\\imgs\\casona.png\" alt=\"Inicio\" >\r\n        </a>\r\n    </header>\r\n    <form action=\"/signup\" method=\"POST\">\r\n        <h2>Registro de usuario</h2>\r\n        <div class=\"error-message\" id=\"error-message\"></div>\r\n        <label for=\"name\">Nombre Completo:</label>\r\n        <input type=\"text\" id=\"name\" name=\"user_name\" required>\r\n        <label for=\"username\">Nombre de Usuario:</label>\r\n        <input type=\"text\" id=\"username\" name=\"username\" required>\r\n        <label for=\"email\">Correo Electrónico:</label>\r\n        <input type=\"email\" id=\"email\" name=\"user_email\" required>\r\n        <label for=\"password\">Contraseña:</label>\r\n        <input type=\"password\" id=\"password\" name=\"user_password\" required>\r\n        <button type=\"submit\">Registrarse</button>\r\n    </form>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/signup.ejs b/views/signup.ejs
+--- a/views/signup.ejs	(revision fd37cea6f04bab78394e3904ba2ff84bd124a448)
++++ b/views/signup.ejs	(date 1731543228423)
+@@ -23,7 +23,7 @@
+             width: 50px;
+             height: 50px;
+             display: flex;
+-            background-color: #2a77b6;
++            background-color: #4CAF50;
+             color: white;
+             align-items: center;
+             justify-content: center;
+@@ -35,7 +35,7 @@
+         }
+ 
+         .inicio:hover {
+-            background-color: #0056b3;
++            background-color: #45a049;
+             position: absolute;
+             left: 40px;
+             top: 20px;
+@@ -106,7 +106,11 @@
+     </header>
+     <form action="/signup" method="POST">
+         <h2>Registro de usuario</h2>
+-        <div class="error-message" id="error-message"></div>
++        <% if (typeof errorMessage !== 'undefined') { %>
++            <div class="error-message" style="color: red;">
++                <%= errorMessage %>
++            </div>
++        <% } %>
+         <label for="name">Nombre Completo:</label>
+         <input type="text" id="name" name="user_name" required>
+         <label for="username">Nombre de Usuario:</label>
+Index: views/login.ejs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Iniciar Sesión</title>\r\n    <link rel=\"stylesheet\" href=\"/styles.css\">\r\n    <style>\r\n        body {\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            height: 100vh;\r\n            margin: 0;\r\n            font-family: Arial, sans-serif;\r\n            background-color: #f4f4f4;\r\n        }\r\n\r\n        form {\r\n            background-color: #fff;\r\n            padding: 50px;\r\n            border-radius: 8px;\r\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n            width: 300px;\r\n            text-align: center;\r\n        }\r\n\r\n        h2 {\r\n            margin-bottom: 20px;\r\n        }\r\n\r\n        label, input {\r\n            display: flex;\r\n            width: 95%;\r\n            margin-bottom: 10px;\r\n            text-align: left;\r\n        }\r\n\r\n        input {\r\n            padding: 8px;\r\n            font-size: 16px;\r\n            border: 1px solid #ccc;\r\n            border-radius: 4px;\r\n            align-content: center;\r\n        }\r\n        button {\r\n            width: 50%;\r\n            padding: 10px;\r\n            background-color: #4CAF50;\r\n            color: white;\r\n            border: none;\r\n            border-radius: 4px;\r\n            font-size: 16px;\r\n            cursor: pointer;\r\n        }\r\n        .inicio {\r\n            position: absolute;\r\n            left: 40px;\r\n            top: 20px;\r\n            width: 50px;\r\n            height: 50px;\r\n            display: flex;\r\n            background-color: #2a77b6;\r\n            color: white;\r\n            align-items: center;\r\n            justify-content: center;\r\n            text-decoration: none;\r\n            border-radius: 50px;\r\n            margin-top: 20px;\r\n            transition: background-color 0.3s ease;\r\n            overflow: hidden;\r\n        }\r\n\r\n        .inicio:hover {\r\n            background-color: #0056b3;\r\n            position: absolute;\r\n            left: 40px;\r\n            top: 20px;\r\n        }\r\n\r\n        .logo{\r\n            width: 60%;\r\n            height: auto;\r\n        }\r\n\r\n        button:hover {\r\n            background-color: #45a049;\r\n        }\r\n\r\n        .signup-link {\r\n            margin-top: 15px;\r\n        }\r\n\r\n        /* Estilo del mensaje de error */\r\n        .error-message {\r\n            color: red;\r\n            margin-bottom: 10px;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <header>\r\n        <a class=\"inicio\" href=\"/\">\r\n            <img class=\"logo\" src=\"\\imgs\\casona.png\" alt=\"Inicio\" >\r\n        </a>\r\n    </header>\r\n    <form action=\"/login\" method=\"POST\">\r\n        <h2>Iniciar Sesión</h2>\r\n\r\n        <div class=\"error-message\" id=\"error-message\"></div>\r\n\r\n        <label for=\"username\">Nombre de Usuario:</label>\r\n        <input type=\"text\" id=\"username\" name=\"username\" required>\r\n        \r\n        <label for=\"password\">Contraseña:</label>\r\n        <input type=\"password\" id=\"password\" name=\"password\" required>\r\n        \r\n        <button type=\"submit\">Iniciar Sesión</button>\r\n        \r\n        <p class=\"signup-link\">¿No tienes una cuenta? <a href=\"/signup\">Regístrate aquí</a>.</p>\r\n    </form>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/login.ejs b/views/login.ejs
+--- a/views/login.ejs	(revision fd37cea6f04bab78394e3904ba2ff84bd124a448)
++++ b/views/login.ejs	(date 1731543228422)
+@@ -60,7 +60,7 @@
+             width: 50px;
+             height: 50px;
+             display: flex;
+-            background-color: #2a77b6;
++            background-color: #4CAF50;
+             color: white;
+             align-items: center;
+             justify-content: center;
+@@ -72,7 +72,7 @@
+         }
+ 
+         .inicio:hover {
+-            background-color: #0056b3;
++            background-color: #45a049;
+             position: absolute;
+             left: 40px;
+             top: 20px;
+@@ -107,7 +107,11 @@
+     <form action="/login" method="POST">
+         <h2>Iniciar Sesión</h2>
+ 
+-        <div class="error-message" id="error-message"></div>
++        <% if (typeof errorMessage !== 'undefined') { %>
++            <div class="error-message" style="color: red;">
++                <%= errorMessage %>
++            </div>
++        <% } %>
+ 
+         <label for="username">Nombre de Usuario:</label>
+         <input type="text" id="username" name="username" required>
+Index: app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const express = require('express');\r\nconst sqlite3 = require('sqlite3').verbose();\r\nconst ejs = require('ejs');\r\nconst path = require('path');\r\nconst bodyParser = require('body-parser');\r\nconst app = express();\r\nconst session = require('express-session');\r\nconst port = process.env.PORT || 3000;\r\n\r\napp.use(session({\r\n    secret: 'tu_clave_secreta', // Cambia esto a una cadena única y segura\r\n    resave: false,\r\n    saveUninitialized: true,\r\n    cookie: { secure: false } // Cambia a true si usas HTTPS\r\n}));\r\n\r\n// Middleware para pasar el usuario a todas las vistas\r\napp.use((req, res, next) => {\r\n    res.locals.user = req.session.user || null; // Esto hace que `user` esté disponible en todas las vistas\r\n    next();\r\n});\r\n\r\n// Servir archivos estáticos desde el directorio \"views\"\r\napp.use(express.static('views'));\r\n\r\n// Usa rutas relativas dentro del proyecto\r\nconst dbPath = path.resolve(__dirname, './movies.db');\r\nconst db = new sqlite3.Database(dbPath, (err) => {\r\n    if (err) {\r\n        console.error(\"Error conectando a la base de datos:\", err);\r\n    } else {\r\n        console.log(\"Conectado a la base de datos de películas.\");\r\n\r\n        // Creación de la nueva tabla users\r\n        const createUserTable = `\r\n            CREATE TABLE IF NOT EXISTS users (\r\n                user_id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n                user_username TEXT UNIQUE NOT NULL,\r\n                user_name TEXT NOT NULL,\r\n                user_email TEXT UNIQUE NOT NULL,\r\n                user_password TEXT NOT NULL,\r\n                is_admin INTEGER DEFAULT 0\r\n            );\r\n        `;\r\n        const createMovieUserTable = `\r\n            CREATE TABLE IF NOT EXISTS movie_user (\r\n            movie_user_id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n            user_id INTEGER NOT NULL,\r\n            movie_id INTEGER NOT NULL,\r\n            rating INTEGER CHECK(rating >= 1 AND rating <= 10),\r\n            review TEXT,\r\n            FOREIGN KEY (user_id) REFERENCES users(user_id),\r\n            FOREIGN KEY (movie_id) REFERENCES movie(movie_id)\r\n            );\r\n        `;\r\n        db.run(createMovieUserTable, (err) => {\r\n            if (err) {\r\n                console.error(\"Error creando la tabla de Movie_usuarios:\", err);\r\n            } else {\r\n                console.log(\"Tabla de Movie_usuarios creada o ya existe.\");\r\n            }\r\n        });\r\n\r\n        db.run(createUserTable, (err) => {\r\n            if (err) {\r\n                console.error(\"Error creando la tabla de usuarios:\", err);\r\n            } else {\r\n                console.log(\"Tabla de usuarios creada o ya existe.\");\r\n            }\r\n        });\r\n    }\r\n});\r\n\r\n\r\n// Middleware para analizar el cuerpo de las solicitudes POST\r\napp.use(bodyParser.urlencoded({ extended: true }));\r\napp.use(bodyParser.json()); // Para analizar solicitudes JSON si es necesario\r\n\r\napp.get('/', (req, res) => {\r\n    const isAuthenticated = req.session.user !== undefined;\r\n    const isAdmin = req.session.user && req.session.user.is_admin === 1;\r\n\r\n    res.render('index', { isAuthenticated, isAdmin});\r\n});\r\n\r\napp.get('/login', (req, res) => {\r\n    res.render('login', { isAuthenticated: !!req.session.user });\r\n});\r\n\r\napp.get('/signup', (req, res) => {\r\n    res.render('signup', { isAuthenticated: !!req.session.user});\r\n});\r\n\r\n// Middleware para verificar si el usuario está autenticado\r\nfunction isAuthenticated(req, res, next) {\r\n    if (req.session.user) {\r\n        next(); // Permitir acceso\r\n    } else {\r\n        res.status(401).send('Debe iniciar sesión para realizar esta acción.');\r\n    }\r\n}\r\n// Middleware para verificar si el usuario es administrador\r\n\r\nfunction isAdmin(req, res, next) {\r\n    // Simulación del usuario actual (esto debería implementarse con un sistema de autenticación real)\r\n    const currentUser = req.session.user || { is_admin: 0 }; // Obtener el usuario actual de la sesión\r\n\r\n    if (currentUser.is_admin) {\r\n        next(); // Permitir acceso\r\n    } else {\r\n        res.status(403).send('Acceso denegado. Se requieren permisos de administrador.');\r\n    }\r\n}\r\n// Configurar el motor de plantillas EJS\r\napp.set('view engine', 'ejs');\r\n\r\n// Listar usuarios (solo para administradores)\r\napp.get('/users', isAdmin, (req, res) => {\r\n    const getUsersQuery = `SELECT user_id, user_username, user_name, user_email FROM users`;\r\n    const successMessage = req.session.successMessage;\r\n    delete req.session.successMessage;  // Limpiar el mensaje de la sesión\r\n    db.all(getUsersQuery, (err, rows) => {\r\n        if (err) {\r\n            console.error(\"Error al obtener la lista de usuarios:\", err);\r\n            return res.status(500).send('Error al obtener la lista de usuarios.');\r\n        }\r\n        res.render('users', { users: rows , successMessage});\r\n    });\r\n});\r\n\r\n// Eliminar usuario (solo para administradores)\r\napp.post('/users/:id/delete', isAdmin, (req, res) => {\r\n    const userId = req.params.id;\r\n    const deleteUserQuery = `DELETE FROM users WHERE user_id = ?`;\r\n    db.run(deleteUserQuery, [userId], (err) => {\r\n        if (err) {\r\n            console.error(\"Error al eliminar el usuario:\", err);\r\n            return res.status(500).send('Error al eliminar el usuario.');\r\n        }\r\n        req.session.successMessage = \"Usuario eliminado exitosamente\";\r\n        res.redirect('/users?message=Usuario eliminado con éxito');\r\n    });\r\n});\r\n\r\n// Ruta para manejar el registro de usuarios\r\napp.post('/signup', (req, res) => {\r\n    const { user_name, username, user_email, user_password } = req.body;\r\n    // Limpiar el mensaje de la sesión\r\n\r\n    if (!user_name || !username || !user_email || !user_password) {\r\n        return res.status(400).send(\"Todos los campos son obligatorios.\");\r\n    }\r\n\r\n    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\r\n    if (!emailRegex.test(user_email)) {\r\n        return res.status(400).send(\"Correo electrónico no válido.\");\r\n    }\r\n\r\n    const checkUserQuery = `SELECT COUNT(*) as count FROM users`;\r\n    db.get(checkUserQuery, [], (err, row) => {\r\n        if (err) {\r\n            return res.status(500).send(\"Error al registrar el usuario.\");\r\n        }\r\n\r\n        const is_admin = row.count === 0 ? 1 : 0;\r\n\r\n        const insertUserQuery = `\r\n            INSERT INTO users (user_name, user_username, user_email, user_password, is_admin)\r\n            VALUES (?, ?, ?, ?, ?);\r\n        `;\r\n\r\n        db.run(insertUserQuery, [user_name, username, user_email, user_password, is_admin], function (err) {\r\n            if (err) {\r\n                return res.status(500).send(\"Error al registrar el usuario.\");\r\n            }\r\n\r\n            // Aquí es donde se produce el error\r\n            req.session.user = {\r\n                user_id: this.lastID,\r\n                user_name: user_name,\r\n                user_username: username,\r\n                is_admin: is_admin\r\n            };\r\n\r\n            console.log(\"Usuario registrado exitosamente con user_id:\", this.lastID);\r\n            res.redirect('/login');\r\n        });\r\n    });\r\n});\r\n\r\n// Ruta para manejar el inicio de sesión\r\napp.post('/login', (req, res) => {\r\n    const { username, password } = req.body;\r\n\r\n    const checkUserQuery = `SELECT * FROM users WHERE user_username = ?`;\r\n    db.get(checkUserQuery, [username], (err, row) => {\r\n        if (err) {\r\n            console.error(\"Error al verificar el usuario:\", err);\r\n            return res.status(500).send(\"Error al iniciar sesión.\");\r\n        }\r\n        if (!row || row.user_password !== password) {\r\n            return res.status(401).send(\"Nombre de usuario o contraseña incorrectos.\");\r\n        }\r\n\r\n        req.session.user = {\r\n            user_id: row.user_id,\r\n            user_name: row.user_name,\r\n            user_username: row.user_username,\r\n            is_admin: row.is_admin\r\n        };\r\n\r\n        console.log(\"Inicio de sesión exitoso para el usuario:\", username);\r\n        res.redirect('/');\r\n    });\r\n});\r\n\r\n\r\n// Asociar una película a un usuario autenticado con puntuación y reseña\r\napp.post('/movies', isAuthenticated, (req, res) => {\r\n    const userId = req.session.user.user_id;\r\n    const { movie_id, rating, review } = req.body;\r\n    const insertMovieUserQuery = `\r\n        INSERT INTO movie_user (user_id, movie_id, rating, review)\r\n        VALUES (?, ?, ?, ?);\r\n    `;\r\n    db.run(insertMovieUserQuery, [userId, movie_id, rating, review], (err) => {\r\n        if (err) {\r\n            console.error(\"Error al asociar la película con el usuario:\", err);\r\n            return res.status(500).send('Error al asociar la película con el usuario.');\r\n        }\r\n        // Guardar el mensaje de éxito en la sesión\r\n        req.session.successMessage = \"Comentario agregado exitosamente\";\r\n        res.redirect(`/pelicula/${movie_id}`);\r\n    });\r\n});\r\n\r\n// Actualizar reseña y puntuación de una película para el usuario autenticado\r\napp.put('/movies/:movieUserId', isAuthenticated, (req, res) => {\r\n    const userId = req.session.user.user_id;\r\n    const { movieUserId } = req.params;\r\n    const { rating, review } = req.body;\r\n    const updateMovieUserQuery = `\r\n        UPDATE movie_user\r\n        SET rating = ?, review = ?\r\n        WHERE movie_user_id = ? AND user_id = ?;\r\n    `;\r\n    db.run(updateMovieUserQuery, [rating, review, movieUserId, userId], (err) => {\r\n        if (err) {\r\n            console.error(\"Error al actualizar la reseña o puntuación:\", err);\r\n            return res.status(500).send('Error al actualizar la reseña o puntuación.');\r\n        }\r\n        res.send('Reseña y puntuación actualizadas con éxito');\r\n    });\r\n});\r\n\r\n// Eliminar la reseña de una película para el usuario autenticado\r\napp.delete('/movies/:movieUserId', isAuthenticated, (req, res) => {\r\n    const userId = req.session.user.user_id;\r\n    const { movieUserId } = req.params;\r\n    const deleteMovieUserQuery = `DELETE FROM movie_user WHERE movie_user_id = ? AND user_id = ?`;\r\n    db.run(deleteMovieUserQuery, [movieUserId, userId], (err) => {\r\n        if (err) {\r\n            console.error(\"Error al eliminar la reseña de la película:\", err);\r\n            return res.status(500).send('Error al eliminar la reseña de la película.');\r\n        }\r\n        res.send('Reseña eliminada con éxito');\r\n    });\r\n});\r\n\r\n// Ruta para la página de inicio\r\napp.get('/', (req, res) => {\r\n    res.render('index');\r\n});\r\n\r\n// Búsqueda de películas, actores, directores, palabras clave y todo\r\napp.get('/buscar', (req, res) => {\r\n    const searchTerm = req.query.q;\r\n    const type = req.query.type;\r\n    const params = [`%${searchTerm}%`];\r\n\r\n    let movieQuery = `SELECT 'movie' as type, title as name, movie_id as id FROM movie WHERE title LIKE ?`;\r\n    let actorQuery = `\r\n        SELECT DISTINCT 'actor' as type, person_name as name, p.person_id as id \r\n        FROM person p\r\n        INNER JOIN movie_cast mc on p.person_id = mc.person_id\r\n        WHERE person_name LIKE ?`;\r\n    let directorQuery = `\r\n        SELECT DISTINCT 'director' as type, person_name as name, p.person_id as id \r\n        FROM person p\r\n        INNER JOIN movie_crew mcr on p.person_id = mcr.person_id\r\n        WHERE job = 'Director' AND person_name LIKE ?`;\r\n    let keywordQuery = `\r\n        SELECT DISTINCT 'keyword' as type, m.title as name, m.movie_id as id\r\n        FROM movie m\r\n        INNER JOIN movie_keywords mk ON m.movie_id = mk.movie_id\r\n        INNER JOIN keyword k ON mk.keyword_id = k.keyword_id\r\n        WHERE keyword_name LIKE ?`;\r\n\r\n    if (type === 'movie') {\r\n        db.all(movieQuery, params, (err, rows) => {\r\n            if (err) {\r\n                console.error(err);\r\n                return res.status(500).send('Error en la búsqueda.');\r\n            }\r\n            res.render('resultado', { results: rows, searchTerm, type });\r\n        });\r\n    } else if (type === 'actor') {\r\n        db.all(actorQuery, params, (err, rows) => {\r\n            if (err) {\r\n                console.error(err);\r\n                return res.status(500).send('Error en la búsqueda.');\r\n            }\r\n            res.render('resultado', { results: rows, searchTerm, type });\r\n        });\r\n    } else if (type === 'director') {\r\n        db.all(directorQuery, params, (err, rows) => {\r\n            if (err) {\r\n                console.error(err);\r\n                return res.status(500).send('Error en la búsqueda.');\r\n            }\r\n            res.render('resultado', { results: rows, searchTerm, type });\r\n        });\r\n    } else if (type === 'keyword') {\r\n        db.all(keywordQuery, params, (err, rows) => {\r\n            if (err) {\r\n                console.error(err);\r\n                return res.status(500).send('Error en la búsqueda.');\r\n            }\r\n            res.render('resultado', { results: rows, searchTerm, type });\r\n        });\r\n    } else if (type === 'todo') {\r\n        // Ejecutar las consultas para películas, actores y directores en paralelo\r\n        let results = [];\r\n\r\n        // Ejecutar la consulta de películas\r\n        db.all(movieQuery, params, (err, movieRows) => {\r\n            if (err) {\r\n                console.error(err);\r\n                return res.status(500).send('Error en la búsqueda de películas.');\r\n            }\r\n            results = results.concat(movieRows);\r\n\r\n            // Ejecutar la consulta de actores\r\n            db.all(actorQuery, params, (err, actorRows) => {\r\n                if (err) {\r\n                    console.error(err);\r\n                    return res.status(500).send('Error en la búsqueda de actores.');\r\n                }\r\n                results = results.concat(actorRows);\r\n\r\n                // Ejecutar la consulta de directores\r\n                db.all(directorQuery, params, (err, directorRows) => {\r\n                    if (err) {\r\n                        console.error(err);\r\n                        return res.status(500).send('Error en la búsqueda de directores.');\r\n                    }\r\n                    results = results.concat(directorRows);\r\n\r\n                    // Finalmente renderizar los resultados combinados\r\n                    res.render('resultado', { results, searchTerm, type });\r\n                });\r\n            });\r\n        });\r\n    } else {\r\n        return res.status(400).send('Tipo de búsqueda no válido. Debe ser \"movie\", \"actor\", \"director\", \"keyword\" o \"todo\".');\r\n    }\r\n});\r\n\r\n// Ruta para la página de datos de una película particular\r\napp.get('/pelicula/:id', (req, res) => {\r\n    const movieId = req.params.id;\r\n    const successMessage = req.session.successMessage;\r\n    delete req.session.successMessage;  // Limpiar el mensaje de la sesión\r\n\r\n    // Consulta principal para obtener los detalles básicos de la película\r\n    const movieQuery = `SELECT * FROM movie WHERE movie_id = ?`;\r\n    const commentsQuery = `\r\n        SELECT u.user_name, mu.rating, mu.review\r\n        FROM movie_user mu\r\n        JOIN users u ON mu.user_id = u.user_id\r\n        WHERE mu.movie_id = ?\r\n        ORDER BY mu.movie_user_id DESC\r\n    `;\r\n    const averageRatingQuery = `\r\n        SELECT AVG(mu.rating) AS average_rating\r\n        FROM movie_user mu\r\n        WHERE mu.movie_id = ?\r\n    `;\r\n\r\n    const castQuery = `\r\n        SELECT actor.person_name AS actor_name, actor.person_id AS actor_id, movie_cast.character_name, movie_cast.cast_order\r\n        FROM movie_cast \r\n        LEFT JOIN person AS actor ON movie_cast.person_id = actor.person_id\r\n        WHERE movie_cast.movie_id = ?\r\n    `;\r\n\r\n    const crewQuery = `\r\n        SELECT crew_member.person_name AS crew_member_name, crew_member.person_id AS crew_member_id, department.department_name, movie_crew.job\r\n        FROM movie_crew \r\n        LEFT JOIN department ON movie_crew.department_id = department.department_id\r\n        LEFT JOIN person AS crew_member ON crew_member.person_id = movie_crew.person_id\r\n        WHERE movie_crew.movie_id = ?\r\n    `;\r\n\r\n    const genreQuery = `SELECT genre.genre_name FROM movie_genres LEFT JOIN genre ON movie_genres.genre_id = genre.genre_id WHERE movie_genres.movie_id = ?`;\r\n    const productionCompanyQuery = `\r\n        SELECT production_company.company_name AS company_name\r\n        FROM movie_company\r\n        LEFT JOIN production_company ON movie_company.company_id = production_company.company_id\r\n        WHERE movie_company.movie_id = ?;\r\n    `;\r\n\r\n    const languageQuery = `SELECT language.language_name FROM movie_languages LEFT JOIN language ON movie_languages.language_id = language.language_id WHERE movie_languages.movie_id = ?`;\r\n    const countryQuery = `SELECT country.country_name FROM production_country LEFT JOIN country ON production_country.country_id = country.country_id WHERE production_country.movie_id = ?`;\r\n    const keywordQuery = `SELECT keyword.keyword_name FROM movie_keywords LEFT JOIN keyword ON movie_keywords.keyword_id = keyword.keyword_id WHERE movie_keywords.movie_id = ?`;\r\n\r\n    // Ejecutar la consulta de la película\r\n    db.get(movieQuery, [movieId], (err, movieRow) => {\r\n        if (err) {\r\n            console.error(err);\r\n            return res.status(500).send('Error al cargar los datos de la película.');\r\n        }\r\n        if (!movieRow) {\r\n            return res.status(404).send('Película no encontrada.');\r\n        }\r\n\r\n        const movieData = {\r\n            id: movieRow.movie_id,\r\n            title: movieRow.title,\r\n            release_date: movieRow.release_date,\r\n            overview: movieRow.overview,\r\n            directors: [],\r\n            writers: [],\r\n            cast: [],\r\n            crew: [],\r\n            genres: [],\r\n            company_name: [],\r\n            languages: [],\r\n            countries: [],\r\n            keywords: []\r\n        };\r\n\r\n        // Ejecutar las consultas adicionales en paralelo\r\n        const queries = [\r\n            {query: castQuery, target: 'cast'},\r\n            {query: crewQuery, target: 'crew'},\r\n            {query: genreQuery, target: 'genres'},\r\n            {query: productionCompanyQuery, target: 'company_name'},\r\n            {query: languageQuery, target: 'languages'},\r\n            {query: countryQuery, target: 'countries'},\r\n            {query: keywordQuery, target: 'keywords'}\r\n        ];\r\n\r\n        let completedQueries = 0;\r\n\r\n        // Ejecutar todas las consultas en paralelo y completar movieData\r\n        queries.forEach(({query, target}) => {\r\n            db.all(query, [movieId], (err, rows) => {\r\n                if (err) {\r\n                    console.error(err);\r\n                } else {\r\n                    if (target === 'cast') {\r\n                        rows.forEach(row => {\r\n                            movieData.cast.push({\r\n                                actor_id: row.actor_id,\r\n                                actor_name: row.actor_name,\r\n                                character_name: row.character_name,\r\n                                cast_order: row.cast_order,\r\n                            });\r\n                        });\r\n                    } else if (target === 'crew') {\r\n                        rows.forEach(row => {\r\n                            if (row.job === 'Director') {\r\n                                movieData.directors.push({\r\n                                    crew_member_id: row.crew_member_id,\r\n                                    crew_member_name: row.crew_member_name\r\n                                });\r\n                            } else if (row.job === 'Writer') {\r\n                                movieData.writers.push({\r\n                                    crew_member_id: row.crew_member_id,\r\n                                    crew_member_name: row.crew_member_name\r\n                                });\r\n                            } else {\r\n                                movieData.crew.push({\r\n                                    crew_member_id: row.crew_member_id,\r\n                                    crew_member_name: row.crew_member_name,\r\n                                    department_name: row.department_name,\r\n                                    job: row.job,\r\n                                });\r\n                            }\r\n                        });\r\n                    } else if (target === 'company_name') {\r\n                        rows.forEach(row => {\r\n                            movieData.company_name.push(row.company_name);\r\n                        });\r\n                    } else if (target === 'countries') {\r\n                        rows.forEach(row => {\r\n                            movieData.countries.push(row.country_name);\r\n                        });\r\n                    } else {\r\n                        const uniqueItems = [...new Set(rows.map(row => row[target.slice(0, -1) + '_name']))];\r\n                        movieData[target] = uniqueItems;\r\n                    }\r\n                }\r\n\r\n                completedQueries++;\r\n                if (completedQueries === queries.length) {\r\n                    // Ejecutar la consulta para obtener el puntaje promedio\r\n                    db.get(averageRatingQuery, [movieId], (err, avgRatingRow) => {\r\n                        if (err) {\r\n                            console.error(\"Error al cargar el puntaje promedio:\", err);\r\n                            return res.status(500).send(\"Error al cargar el puntaje promedio.\");\r\n                        }\r\n\r\n                        // Asignar el puntaje promedio a la variable movieData\r\n                        const averageRating = avgRatingRow ? avgRatingRow.average_rating : null;\r\n                        movieData.average_rating = averageRating;\r\n\r\n                        // Ejecutar la consulta para obtener los comentarios\r\n                        db.all(commentsQuery, [movieId], (err, comments) => {\r\n                            if (err) {\r\n                                console.error(\"Error al cargar los comentarios:\", err);\r\n                                return res.status(500).send(\"Error al cargar los comentarios.\");\r\n                            }\r\n\r\n                            // Renderizar la vista con movieData y los comentarios\r\n                            res.render('pelicula', { movie: movieData, comments, successMessage });\r\n                        });\r\n                    });\r\n                }\r\n            });\r\n        });\r\n    });\r\n});\r\n// Ruta para mostrar la página de un actor específico\r\napp.get('/actor/:id', (req, res) => {\r\n    const actorId = req.params.id;\r\n\r\n    // Consultas para películas en las que actuó y dirigió\r\n    const actingQuery = `\r\n        SELECT DISTINCT person.person_name as actorName, movie.* \r\n        FROM movie  \r\n        INNER JOIN movie_cast ON movie.movie_id = movie_cast.movie_id\r\n        INNER JOIN person ON person.person_id = movie_cast.person_id\r\n        WHERE movie_cast.person_id = ?\r\n    `;\r\n    const directingQuery = `\r\n        SELECT DISTINCT movie.* \r\n        FROM movie\r\n        INNER JOIN movie_crew ON movie.movie_id = movie_crew.movie_id\r\n        INNER JOIN person ON person.person_id = movie_crew.person_id\r\n        WHERE movie_crew.job = 'Director' AND movie_crew.person_id = ?\r\n    `;\r\n\r\n    db.all(actingQuery, [actorId], (err, actingMovies) => {\r\n        if (err) {\r\n            console.error(err);\r\n            return res.status(500).send('Error al cargar las películas del actor.');\r\n        }\r\n        db.all(directingQuery, [actorId], (err, directingMovies) => {\r\n            if (err) {\r\n                console.error(err);\r\n                return res.status(500).send('Error al cargar las películas como director.');\r\n            }\r\n\r\n            const actorName = actingMovies.length > 0 ? actingMovies[0].actorName : (directingMovies[0] ? directingMovies[0].actorName : '');\r\n            res.render('actor', { actorName, actingMovies, directingMovies });\r\n        });\r\n    });\r\n});\r\n\r\napp.get('/director/:id', (req, res) => {\r\n    const directorId = req.params.id;\r\n\r\n    // Consultas para películas en las que actuó y dirigió\r\n    const directingQuery = `\r\n        SELECT DISTINCT person.person_name as directorName, movie.* \r\n        FROM movie\r\n        INNER JOIN movie_crew ON movie.movie_id = movie_crew.movie_id\r\n        INNER JOIN person ON person.person_id = movie_crew.person_id\r\n        WHERE movie_crew.job = 'Director' AND movie_crew.person_id = ?\r\n    `;\r\n    const actingQuery = `\r\n        SELECT DISTINCT movie.* \r\n        FROM movie\r\n        INNER JOIN movie_cast ON movie.movie_id = movie_cast.movie_id\r\n        INNER JOIN person ON person.person_id = movie_cast.person_id\r\n        WHERE movie_cast.person_id = ?\r\n    `;\r\n    db.all(directingQuery, [directorId], (err, directingMovies) => {\r\n        if (err) {\r\n            console.error(err);\r\n            return res.status(500).send('Error al cargar las películas del director.');\r\n        }\r\n        db.all(actingQuery, [directorId], (err, actingMovies) => {\r\n            if (err) {\r\n                console.error(err);\r\n                return res.status(500).send('Error al cargar las películas como actor.');\r\n            }\r\n\r\n            const directorName = directingMovies.length > 0 ? directingMovies[0].directorName : (actingMovies[0] ? actingMovies[0].directorName : '');\r\n            res.render('director', { directorName, actingMovies, directingMovies });\r\n        });\r\n    });\r\n});\r\n\r\n// Voy al login page\r\napp.get('/login', (req, res) => {\r\n    res.render('login');\r\n});\r\n// Ruta para cerrar sesión\r\napp.get('/logout', (req, res) => {\r\n    req.session.destroy((err) => {\r\n        if (err) {\r\n            console.error(\"Error al cerrar la sesión:\", err);\r\n            return res.status(500).send(\"Error al cerrar la sesión.\");\r\n        }\r\n        res.redirect('/login');\r\n    });\r\n});\r\n\r\n// Iniciar el servidor\r\napp.listen(port, () => {\r\n    console.log(`Servidor en ejecución en http://localhost:${port}`);\r\n});\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app.js b/app.js
+--- a/app.js	(revision fd37cea6f04bab78394e3904ba2ff84bd124a448)
++++ b/app.js	(date 1731543228275)
+@@ -84,11 +84,20 @@
+ });
+ 
+ app.get('/login', (req, res) => {
+-    res.render('login', { isAuthenticated: !!req.session.user });
++    // Pasar el mensaje de error, si existe, y luego eliminarlo de la sesión
++    const errorMessage = req.session.errorMessage;
++    delete req.session.errorMessage;
++
++    res.render('login', {
++        isAuthenticated: !!req.session.user,
++        errorMessage // Pasamos el mensaje de error a la vista
++    });
+ });
+ 
+ app.get('/signup', (req, res) => {
+-    res.render('signup', { isAuthenticated: !!req.session.user});
++    const errorMessage = req.session.errorMessage;
++    delete req.session.errorMessage;
++    res.render('signup', { isAuthenticated: !!req.session.user, errorMessage});
+ });
+ 
+ // Middleware para verificar si el usuario está autenticado
+@@ -159,7 +168,9 @@
+     const checkUserQuery = `SELECT COUNT(*) as count FROM users`;
+     db.get(checkUserQuery, [], (err, row) => {
+         if (err) {
+-            return res.status(500).send("Error al registrar el usuario.");
++            console.error("Error al verificar el usuario:", err);
++            req.session.errorMessage = "Error al registrarse: Nombre de usuario o mail ya existente";
++            return res.redirect('/signup');
+         }
+ 
+         const is_admin = row.count === 0 ? 1 : 0;
+@@ -171,7 +182,9 @@
+ 
+         db.run(insertUserQuery, [user_name, username, user_email, user_password, is_admin], function (err) {
+             if (err) {
+-                return res.status(500).send("Error al registrar el usuario.");
++                console.error("Error al verificar el usuario:", err);
++                req.session.errorMessage = "Error al registrarse: Nombre de usuario o Mail ya existente";
++                return res.redirect('/signup');
+             }
+ 
+             // Aquí es donde se produce el error
+@@ -196,12 +209,13 @@
+     db.get(checkUserQuery, [username], (err, row) => {
+         if (err) {
+             console.error("Error al verificar el usuario:", err);
+-            return res.status(500).send("Error al iniciar sesión.");
++            req.session.errorMessage = "Error al iniciar sesión.";
++            return res.redirect('/login');
+         }
+         if (!row || row.user_password !== password) {
+-            return res.status(401).send("Nombre de usuario o contraseña incorrectos.");
++            req.session.errorMessage = "Nombre de usuario o contraseña incorrectos.";
++            return res.redirect('/login');
+         }
+-
+         req.session.user = {
+             user_id: row.user_id,
+             user_name: row.user_name,
+@@ -233,40 +247,6 @@
+         res.redirect(`/pelicula/${movie_id}`);
+     });
+ });
+-
+-// Actualizar reseña y puntuación de una película para el usuario autenticado
+-app.put('/movies/:movieUserId', isAuthenticated, (req, res) => {
+-    const userId = req.session.user.user_id;
+-    const { movieUserId } = req.params;
+-    const { rating, review } = req.body;
+-    const updateMovieUserQuery = `
+-        UPDATE movie_user
+-        SET rating = ?, review = ?
+-        WHERE movie_user_id = ? AND user_id = ?;
+-    `;
+-    db.run(updateMovieUserQuery, [rating, review, movieUserId, userId], (err) => {
+-        if (err) {
+-            console.error("Error al actualizar la reseña o puntuación:", err);
+-            return res.status(500).send('Error al actualizar la reseña o puntuación.');
+-        }
+-        res.send('Reseña y puntuación actualizadas con éxito');
+-    });
+-});
+-
+-// Eliminar la reseña de una película para el usuario autenticado
+-app.delete('/movies/:movieUserId', isAuthenticated, (req, res) => {
+-    const userId = req.session.user.user_id;
+-    const { movieUserId } = req.params;
+-    const deleteMovieUserQuery = `DELETE FROM movie_user WHERE movie_user_id = ? AND user_id = ?`;
+-    db.run(deleteMovieUserQuery, [movieUserId, userId], (err) => {
+-        if (err) {
+-            console.error("Error al eliminar la reseña de la película:", err);
+-            return res.status(500).send('Error al eliminar la reseña de la película.');
+-        }
+-        res.send('Reseña eliminada con éxito');
+-    });
+-});
+-
+ // Ruta para la página de inicio
+ app.get('/', (req, res) => {
+     res.render('index');
+Index: views/index.ejs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n  <title>MovieWeb</title>\r\n  \r\n  <!-- Para mayor organización ponemos los botones login y register en el header -->\r\n  <style>\r\n    /* Estilos generales */\r\n    body {\r\n      font-family: 'Arial', sans-serif;\r\n      background-color: #f0f0f0;\r\n      display: flex;\r\n      flex-direction: column;\r\n      justify-content: center; /* Centra el contenido verticalmente */\r\n      align-items: center; /* Centra el contenido horizontalmente */\r\n      height: 100vh;\r\n      margin: 0;\r\n      padding: 20px;\r\n      position: relative;\r\n    }\r\n    .signup-button{\r\n      position: absolute;\r\n      top: 20px;\r\n      margin-right: auto;\r\n      right: 170px;\r\n      background-color: #0078d4;\r\n      color: white;\r\n      border: none;\r\n      border-radius: 5px;\r\n      padding: 10px 20px;\r\n      font-size: 16px;\r\n      cursor: pointer;\r\n      text-decoration: none;\r\n      transition: background-color 0.3s ease;\r\n    }\r\n    /*Boton de log out*/\r\n    .logout-button{\r\n      position: absolute;\r\n      top: 20px;\r\n      margin-right: auto;\r\n      right: 20px;\r\n      background-color: #0078d4;\r\n      color: white;\r\n      border: none;\r\n      border-radius: 5px;\r\n      padding: 10px 20px;\r\n      font-size: 16px;\r\n      cursor: pointer;\r\n      text-decoration: none;\r\n      transition: background-color 0.3s ease;\r\n    }\r\n    /* Botón de Log In */\r\n    .login-button {\r\n      position: absolute;\r\n      top: 20px;\r\n      right: 20px;\r\n      background-color: #0078d4;\r\n      color: white;\r\n      border: none;\r\n      border-radius: 5px;\r\n      padding: 10px 20px;\r\n      font-size: 16px;\r\n      cursor: pointer;\r\n      text-decoration: none;\r\n      transition: background-color 0.3s ease;\r\n    }\r\n\r\n    .list-users {\r\n        position: absolute;\r\n        top: 20px;\r\n        left: 20px;\r\n        background-color: #0078d4;\r\n        color: white;\r\n        border: none;\r\n        border-radius: 5px;\r\n        padding: 10px 20px;\r\n        font-size: 16px;\r\n        cursor: pointer;\r\n        text-decoration: none;\r\n        transition: background-color 0.3s ease;\r\n    }\r\n\r\n    .login-button:hover{\r\n      background-color: #0056b3;\r\n    }\r\n\r\n    .signup-button:hover {\r\n      background-color: #0056b3;\r\n    }\r\n\r\n    /* Estilos del contenido de la página */\r\n    h1 {\r\n      font-size: 36px;\r\n      color: #333;\r\n      margin-bottom: 30px;\r\n      text-align: center; /* Alineación central del texto */\r\n    }\r\n\r\n    form {\r\n      display: flex;\r\n      justify-content: center;\r\n      align-items: center;\r\n      gap: 10px;\r\n      background-color: white;\r\n      padding: 20px;\r\n      border-radius: 40px;\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n    }\r\n\r\n    /* Estilo de los inputs */\r\n    input[type=\"text\"], select {\r\n      padding: 12px;\r\n      font-size: 16px;\r\n      border: 1px solid #ccc;\r\n      border-radius: 40px;\r\n      width: 250px;\r\n      outline: none;\r\n      transition: border-color 0.3s ease;\r\n    }\r\n\r\n    input[type=\"text\"]:focus, select:focus {\r\n      border-color: #0078d4;\r\n    }\r\n\r\n    button[type=\"submit\"] {\r\n      background-color: #0078d4;\r\n      color: white;\r\n      border: none;\r\n      border-radius: 40px;\r\n      padding: 12px 20px;\r\n      font-size: 16px;\r\n      cursor: pointer;\r\n      transition: background-color 0.3s ease;\r\n    }\r\n\r\n    button[type=\"submit\"]:hover {\r\n      background-color: #0056b3;\r\n    }\r\n\r\n    select {\r\n      padding: 12px;\r\n      font-size: 14px;\r\n      border: 1px solid #ccc;\r\n      border-radius: 40px;\r\n      width: 100px;\r\n      outline: none;\r\n      transition: border-color 0.3s ease;\r\n      background-color: #f5f5f5;\r\n      background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22%23333%22%3E%3Cpath d%3D%22M7 10l5 5 5-5z%22/%3E%3C/svg%3E'); /* Flecha personalizada */\r\n      background-repeat: no-repeat;\r\n      background-position: right 15px center; /* Mueve la flecha 15px desde la derecha */\r\n      background-size: 16px;\r\n      appearance: none; /* Oculta la flecha predeterminada del sistema */\r\n      -webkit-appearance: none;\r\n      -moz-appearance: none;\r\n      cursor: pointer;\r\n    }\r\n\r\n    select:focus {\r\n      border-color: #0078d4;\r\n    }\r\n\r\n    select:hover {\r\n      border-color: #0078d4;\r\n    }\r\n    .greeting {\r\n        position: absolute;\r\n        top: 20px;\r\n        left: 20px;\r\n        font-size: 16px;\r\n        color: #333;\r\n    }\r\n\r\n  </style>\r\n</head>\r\n<body>\r\n<header>\r\n  <% if (!isAuthenticated) { %>\r\n    <a href=\"/login\" class=\"login-button\">Iniciar sesión</a>\r\n    <a href=\"/signup\" class=\"signup-button\">Registrarse</a>\r\n  <% } else if (isAdmin) { %>\r\n          <!-- Mostrar solo si el usuario es admin -->\r\n          <a href=\"/users\" class=\"list-users\">Lista de usuario</a>\r\n          <a href=\"/logout\" class=\"logout-button\">Cerrar sesión</a>\r\n  <% } else { %>\r\n      <!-- Mostrar solo si el usuario está autenticado -->\r\n    <a href=\"/logout\" class=\"logout-button\">Cerrar sesión</a>\r\n  <% } %>\r\n</header>\r\n<h1>MovieWeb</h1>\r\n<!-- Así se comenta, god-->\r\n<!-- En la main page ahora hay una caja en la cual podemos seleccionar que tipo buscar (película, actor o director) -->\r\n<form action=\"/buscar\" method=\"GET\">\r\n  <select name=\"type\" required>\r\n    <option value=\"todo\">Todo</option> <!--agrego selector de buscar por all-->\r\n    <option value=\"movie\">Película</option>\r\n    <option value=\"actor\">Actor</option>\r\n    <option value=\"director\">Director</option>\r\n    <option value=\"keyword\">Keyword</option><!--agrego selector de buscar por keyword -->\r\n  </select>\r\n  <input type=\"text\" name=\"q\" placeholder=\"Buscar...\" required />\r\n  <button type=\"submit\">Buscar</button>\r\n</form>\r\n</body>\r\n</html> 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/index.ejs b/views/index.ejs
+--- a/views/index.ejs	(revision fd37cea6f04bab78394e3904ba2ff84bd124a448)
++++ b/views/index.ejs	(date 1731543228421)
+@@ -1,205 +1,189 @@
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
+-  <title>MovieWeb</title>
+-  
+-  <!-- Para mayor organización ponemos los botones login y register en el header -->
+-  <style>
+-    /* Estilos generales */
+-    body {
+-      font-family: 'Arial', sans-serif;
+-      background-color: #f0f0f0;
+-      display: flex;
+-      flex-direction: column;
+-      justify-content: center; /* Centra el contenido verticalmente */
+-      align-items: center; /* Centra el contenido horizontalmente */
+-      height: 100vh;
+-      margin: 0;
+-      padding: 20px;
+-      position: relative;
+-    }
+-    .signup-button{
+-      position: absolute;
+-      top: 20px;
+-      margin-right: auto;
+-      right: 170px;
+-      background-color: #0078d4;
+-      color: white;
+-      border: none;
+-      border-radius: 5px;
+-      padding: 10px 20px;
+-      font-size: 16px;
+-      cursor: pointer;
+-      text-decoration: none;
+-      transition: background-color 0.3s ease;
+-    }
+-    /*Boton de log out*/
+-    .logout-button{
+-      position: absolute;
+-      top: 20px;
+-      margin-right: auto;
+-      right: 20px;
+-      background-color: #0078d4;
+-      color: white;
+-      border: none;
+-      border-radius: 5px;
+-      padding: 10px 20px;
+-      font-size: 16px;
+-      cursor: pointer;
+-      text-decoration: none;
+-      transition: background-color 0.3s ease;
+-    }
+-    /* Botón de Log In */
+-    .login-button {
+-      position: absolute;
+-      top: 20px;
+-      right: 20px;
+-      background-color: #0078d4;
+-      color: white;
+-      border: none;
+-      border-radius: 5px;
+-      padding: 10px 20px;
+-      font-size: 16px;
+-      cursor: pointer;
+-      text-decoration: none;
+-      transition: background-color 0.3s ease;
+-    }
+-
+-    .list-users {
+-        position: absolute;
+-        top: 20px;
+-        left: 20px;
+-        background-color: #0078d4;
+-        color: white;
+-        border: none;
+-        border-radius: 5px;
+-        padding: 10px 20px;
+-        font-size: 16px;
+-        cursor: pointer;
+-        text-decoration: none;
+-        transition: background-color 0.3s ease;
+-    }
+-
+-    .login-button:hover{
+-      background-color: #0056b3;
+-    }
+-
+-    .signup-button:hover {
+-      background-color: #0056b3;
+-    }
++    <title>MovieWeb</title>
++    <style>
++        /* Estilos generales */
++        body {
++            font-family: 'Arial', sans-serif;
++            background-color: #f0f0f0;
++            display: flex;
++            flex-direction: column;
++            justify-content: center;
++            align-items: center;
++            height: 100vh;
++            margin: 0;
++            padding: 20px;
++            position: relative;
++        }
++
++        /* Botones de cabecera */
++        .menu {
++            color: #333;
++            border: none;
++            border-radius: 5px;
++            padding: 10px 20px;
++            font-size: 16px;
++            cursor: pointer;
++            text-decoration: none;
++            transition: background-color 0.3s ease;
++            width: auto;
++            text-align: center;
++            background-color: white;
++            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
++        }
++
++        .menu:hover {
++            background-color: #0056b3;
++            color: white;
++        }
+ 
+-    /* Estilos del contenido de la página */
+-    h1 {
+-      font-size: 36px;
+-      color: #333;
+-      margin-bottom: 30px;
+-      text-align: center; /* Alineación central del texto */
+-    }
++        /* Estilos del contenido de la página */
++        h1 {
++            font-size: 36px;
++            color: #333;
++            margin-bottom: 30px;
++            text-align: center;
++        }
+ 
+-    form {
+-      display: flex;
+-      justify-content: center;
+-      align-items: center;
+-      gap: 10px;
+-      background-color: white;
+-      padding: 20px;
+-      border-radius: 40px;
+-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+-    }
++        form {
++            display: flex;
++            justify-content: center;
++            align-items: center;
++            gap: 10px;
++            background-color: white;
++            padding: 20px;
++            border-radius: 40px;
++            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
++        }
+ 
+-    /* Estilo de los inputs */
+-    input[type="text"], select {
+-      padding: 12px;
+-      font-size: 16px;
+-      border: 1px solid #ccc;
+-      border-radius: 40px;
+-      width: 250px;
+-      outline: none;
+-      transition: border-color 0.3s ease;
+-    }
++        /* Estilo de los inputs */
++        input[type="text"], select {
++            padding: 12px;
++            font-size: 16px;
++            border: 1px solid #ccc;
++            border-radius: 40px;
++            width: 250px;
++            outline: none;
++            transition: border-color 0.3s ease;
++        }
+ 
+-    input[type="text"]:focus, select:focus {
+-      border-color: #0078d4;
+-    }
++        input[type="text"]:focus, select:focus {
++            border-color: #0078d4;
++        }
+ 
+-    button[type="submit"] {
+-      background-color: #0078d4;
+-      color: white;
+-      border: none;
+-      border-radius: 40px;
+-      padding: 12px 20px;
+-      font-size: 16px;
+-      cursor: pointer;
+-      transition: background-color 0.3s ease;
+-    }
++        button[type="submit"] {
++            background-color: #0078d4;
++            color: white;
++            border: none;
++            border-radius: 40px;
++            padding: 12px 20px;
++            font-size: 16px;
++            cursor: pointer;
++            transition: background-color 0.3s ease;
++        }
+ 
+-    button[type="submit"]:hover {
+-      background-color: #0056b3;
+-    }
++        button[type="submit"]:hover {
++            background-color: #0056b3;
++        }
+ 
+-    select {
+-      padding: 12px;
+-      font-size: 14px;
+-      border: 1px solid #ccc;
+-      border-radius: 40px;
+-      width: 100px;
+-      outline: none;
+-      transition: border-color 0.3s ease;
+-      background-color: #f5f5f5;
+-      background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22%23333%22%3E%3Cpath d%3D%22M7 10l5 5 5-5z%22/%3E%3C/svg%3E'); /* Flecha personalizada */
+-      background-repeat: no-repeat;
+-      background-position: right 15px center; /* Mueve la flecha 15px desde la derecha */
+-      background-size: 16px;
+-      appearance: none; /* Oculta la flecha predeterminada del sistema */
+-      -webkit-appearance: none;
+-      -moz-appearance: none;
+-      cursor: pointer;
+-    }
++        /* Estilo del selector */
++        select {
++            width: 100px;
++            appearance: none;
++            background-color: #f5f5f5;
++            background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22%23333%22%3E%3Cpath d%3D%22M7 10l5 5 5-5z%22/%3E%3C/svg%3E');
++            background-repeat: no-repeat;
++            background-position: right 15px center;
++            background-size: 16px;
++            cursor: pointer;
++        }
+ 
+-    select:focus {
+-      border-color: #0078d4;
+-    }
+-
+-    select:hover {
+-      border-color: #0078d4;
+-    }
+-    .greeting {
+-        position: absolute;
+-        top: 20px;
+-        left: 20px;
+-        font-size: 16px;
+-        color: #333;
+-    }
++        /* Botón de menú tipo hamburguesa */
++        .menu-button {
++            position: absolute;
++            top: 20px;
++            left: 20px;
++            background-color: #0078d4;
++            color: white;
++            border: none;
++            border-radius: 5px;
++            padding: 10px;
++            font-size: 24px;
++            cursor: pointer;
++            display: flex;
++            flex-direction: column;
++            align-items: center;
++            justify-content: center;
++        }
++
++        .menu-button div {
++            width: 25px;
++            height: 3px;
++            background-color: white;
++            margin: 3px 0;
++        }
++
++        /* Contenedor para los botones desplegables */
++        .menu-content {
++            position: absolute;
++            top: 70px; /* Espacio entre el botón de hamburguesa y el menú desplegable */
++            left: 20px;
++            display: none;
++            flex-direction: column;
++            gap: 10px;
++            background-color: white;
++            padding: 10px;
++            border-radius: 5px;
++            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
++            z-index: 1;
++        }
+ 
+-  </style>
++    </style>
+ </head>
+ <body>
+ <header>
+-  <% if (!isAuthenticated) { %>
+-    <a href="/login" class="login-button">Iniciar sesión</a>
+-    <a href="/signup" class="signup-button">Registrarse</a>
+-  <% } else if (isAdmin) { %>
+-          <!-- Mostrar solo si el usuario es admin -->
+-          <a href="/users" class="list-users">Lista de usuario</a>
+-          <a href="/logout" class="logout-button">Cerrar sesión</a>
+-  <% } else { %>
+-      <!-- Mostrar solo si el usuario está autenticado -->
+-    <a href="/logout" class="logout-button">Cerrar sesión</a>
+-  <% } %>
++    <!-- Botón de menú hamburguesa -->
++    <button class="menu-button" onclick="toggleMenu()">
++        <div></div>
++        <div></div>
++        <div></div>
++    </button>
++
++    <!-- Contenedor de los botones de navegación -->
++    <div class="menu-content" id="menuContent">
++        <% if (!isAuthenticated) { %>
++            <a href="/login" class="menu">Iniciar sesión</a>
++            <a href="/signup" class="menu">Registrarse</a>
++        <% } else if (isAdmin) { %>
++            <a href="/users" class="menu">Lista de usuario</a>
++            <a href="/logout" class="menu">Cerrar sesión</a>
++        <% } else { %>
++            <a href="/logout" class="menu">Cerrar sesión</a>
++        <% } %>
++    </div>
+ </header>
++
+ <h1>MovieWeb</h1>
+-<!-- Así se comenta, god-->
+-<!-- En la main page ahora hay una caja en la cual podemos seleccionar que tipo buscar (película, actor o director) -->
++
+ <form action="/buscar" method="GET">
+-  <select name="type" required>
+-    <option value="todo">Todo</option> <!--agrego selector de buscar por all-->
+-    <option value="movie">Película</option>
+-    <option value="actor">Actor</option>
+-    <option value="director">Director</option>
+-    <option value="keyword">Keyword</option><!--agrego selector de buscar por keyword -->
+-  </select>
+-  <input type="text" name="q" placeholder="Buscar..." required />
+-  <button type="submit">Buscar</button>
++    <select name="type" required>
++        <option value="todo">Todo</option>
++        <option value="movie">Película</option>
++        <option value="actor">Actor</option>
++        <option value="director">Director</option>
++        <option value="keyword">Keyword</option>
++    </select>
++    <input type="text" name="q" placeholder="Buscar..." required />
++    <button type="submit">Buscar</button>
+ </form>
++
++<script>
++    function toggleMenu() {
++        const menu = document.getElementById("menuContent");
++        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
++    }
++</script>
++
+ </body>
+-</html> 
+\ No newline at end of file
++</html>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5bceb46f-e395-4dd0-bd81-9e2670061928\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;ignaciogaspar&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/Facundo-Lanusse/tpbasededatos.git&quot;,\r\n    &quot;accountId&quot;: &quot;566fcf55-f786-4b7d-8ff2-305be33b4d6e&quot;\r\n  }\r\n}</component>\r\n  <component name=\"PackageJsonUpdateNotifier\">\r\n    <dismissed value=\"$PROJECT_DIR$/package.json\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2nXV3Co9o1Nojd7PCEK4Oi2IoXY\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"Node.js.app.js.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenDatabaseViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"javascript.nodejs.core.library.configured.version\": \"23.1.0\",\r\n    \"javascript.nodejs.core.library.typings.version\": \"22.9.0\",\r\n    \"last_opened_file_path\": \"C:/Users/nacug/Faculty/base-de-datos/tpbasededatos\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"npm.test.executor\": \"Run\",\r\n    \"settings.editor.selected.configurable\": \"configurable.group.editor\",\r\n    \"ts.external.directory.path\": \"C:\\\\Program Files\\\\JetBrains\\\\WebStorm 2024.2.3\\\\plugins\\\\javascript-plugin\\\\jsLanguageServicesImpl\\\\external\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"test\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"test\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"npm.test\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-WS-243.21565.180\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5bceb46f-e395-4dd0-bd81-9e2670061928\" name=\"Changes\" comment=\"\" />\r\n      <created>1729119205907</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1729119205907</updated>\r\n      <workItem from=\"1729119207092\" duration=\"1645000\" />\r\n      <workItem from=\"1729370185769\" duration=\"1282000\" />\r\n      <workItem from=\"1730053539483\" duration=\"1459000\" />\r\n      <workItem from=\"1730061133871\" duration=\"2316000\" />\r\n      <workItem from=\"1730081498745\" duration=\"337000\" />\r\n      <workItem from=\"1731435362188\" duration=\"328000\" />\r\n      <workItem from=\"1731435718490\" duration=\"327000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Agrego funcionalidades para el control de usuarios (poder listarlos y eliminarlos, las queries ya estan faltan los botones), arregle la opcion de logearse y agregue opcion para hacer log out.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1730081045999</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1730081045999</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Agrego funcionalidades para el control de usuarios (poder listarlos y eliminarlos, las queries ya estan faltan los botones), arregle la opcion de logearse y agregue opcion para hacer log out.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1731542984380</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1731542984380</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Agrego funcionalidades para el control de usuarios (poder listarlos y eliminarlos, las queries ya estan faltan los botones), arregle la opcion de logearse y agregue opcion para hacer log out.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Agrego funcionalidades para el control de usuarios (poder listarlos y eliminarlos, las queries ya estan faltan los botones), arregle la opcion de logearse y agregue opcion para hacer log out.\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision fd37cea6f04bab78394e3904ba2ff84bd124a448)
++++ b/.idea/workspace.xml	(date 1731543256400)
+@@ -6,6 +6,10 @@
+   <component name="ChangeListManager">
+     <list default="true" id="5bceb46f-e395-4dd0-bd81-9e2670061928" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/movies.db" beforeDir="false" afterPath="$PROJECT_DIR$/movies.db" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/views/pelicula.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pelicula.ejs" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/views/users.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/users.ejs" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -44,29 +48,29 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "Node.js.app.js.executor": "Run",
+-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "git-widget-placeholder": "main",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "javascript.nodejs.core.library.configured.version": "23.1.0",
+-    "javascript.nodejs.core.library.typings.version": "22.9.0",
+-    "last_opened_file_path": "C:/Users/nacug/Faculty/base-de-datos/tpbasededatos",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "npm.test.executor": "Run",
+-    "settings.editor.selected.configurable": "configurable.group.editor",
+-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;Node.js.app.js.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;ignaciogaspar&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;23.1.0&quot;,
++    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.9.0&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/nacug/Faculty/base-de-datos/tpbasededatos&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;npm.test.executor&quot;: &quot;Run&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RunManager">
+     <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+       <package-json value="$PROJECT_DIR$/package.json" />
+@@ -115,15 +119,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1730081045999</updated>
+     </task>
+-    <task id="LOCAL-00002" summary="Agrego funcionalidades para el control de usuarios (poder listarlos y eliminarlos, las queries ya estan faltan los botones), arregle la opcion de logearse y agregue opcion para hacer log out.">
+-      <option name="closed" value="true" />
+-      <created>1731542984380</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1731542984380</updated>
+-    </task>
+-    <option name="localTasksCounter" value="3" />
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+Index: movies.db
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/movies.db b/movies.db
+--- a/movies.db	(revision fd37cea6f04bab78394e3904ba2ff84bd124a448)
++++ b/movies.db	(date 1731543228419)
+@@ -1,4 +1,4 @@
+-SQLite format 3   @     o  �                                                             o .r�   �   ���
++SQLite format 3   @     q  �                                                             q .r�   �   ���
+ �Z
+ 
+ �G��
+@@ -145758,15 +145758,14 @@
+  ���y ��� ��� ���� �� �� ��� ��~� ��}� ��|~� ��{x3 ��zx3 ��yu� ��xu� ��wu� ��vtA ��ur{ ��tq� ��sp� ��rox ��qi@ ��pg> ��ob� ��n^K ��m[C ��lOA ��kNt ��jNt ��iNk ��hM� ��gK� ��fG� ��eG7 ��dC� ��cA� ��b>� ��a=q ��`9� ��_9� ��^3P ��]2� ��\0 ��[-� ��Z � ��Y  ��X� ��W� ��V� ��U� ��T� ��S� ��R� ��Q; ��P+ ��O+ ��N$ ��M ��L{ ��K� ��J� ��IH ��HH ��G
+ � ��F ��E ��D ��Ci ��BD ��A� ��@� ��?� ��>� ��= � ��< � ��; � ��:�� ��9�� ��8�5 ��7�
+  ��6�< ��5�< ��4�< ��3�  ��2�� ��1� ��0�] ��/�] ��.�\ ��-�[ ��,� ��+� ��*� ��)�� ��(�� ��'�� �
+-   ] ��]3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             $ +pachePachepac(
+- +prueba2prueba2lala2@gmail.com1234% )pruebapruebalala@gmail.com1234J ++Gfacundo-lanussefacundo lanussefalanusse@mail.austral.edu.ar12345678. !1	chadminChad AdminSoyAdmin@gmail.com1234
+-   � ����                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          prueba2
+-prueba+facundo-lanusse
++� ] �]�3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             $ +pachePachepac(
++ +prueba2prueba2lala2@gmail.com1234% )pruebapruebalala@gmail.com1234   ++Gfacundo-la7 %+/facu-lanussefacundo lanusselanusse@gmail.com1234. !1	chadminChad AdminSoyAdmin@gmail.com1234
++   �����                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          prueba2
++prueba%facu-lanussese
+ 	chadmin
+-   � ����                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    +pache@gma+lala2@gmail.com
+-)lala@gmail.com!Gfalanusse@mail.austral.edu.ar1	SoyAdmin@gmail.com
+-   � ��                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         !movie_user	users
+-
++� � ����                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    +pache@gma+lala2@gmail.com
++)lala@gmail.com   falanuss/lanusse@gmail.com1	SoyAdmin@gmail.com
++   � ��                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         !movie_user	users
+    u ����w^B.�����u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              	!buena peli FUNCA 3no funca el puntaje
+  )Voy a pelicula  	=funciona, manda a inicio !funciona
+ 

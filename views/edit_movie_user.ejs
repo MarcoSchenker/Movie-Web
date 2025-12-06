@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Reseña de Película</title>
+    <style>
+        /* Estilos para la calificación de estrellas */
+        .star-rating {
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            font-size: 2em;
+        }
+
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+
+        .star-rating label {
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        /* Cambiar el color de las estrellas al pasar el cursor y al seleccionar */
+        .star-rating input[type="radio"]:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+<h1>Editar Reseña de Película</h1>
+<form action="/movies/<%= movie.movie_user_id %>?_method=PUT" method="POST">
+    <label for="rating">Puntuación:</label>
+
+    <div class="star-rating">
+        <% for (let i = 5; i >= 1; i--) { %>
+            <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>"
+                    <%= movie.rating == i ? 'checked' : '' %>>
+            <label for="star<%= i %>">★</label>
+        <% } %>
+    </div>
+    <label for="review">Reseña:</label>
+    <textarea name="review"><%= movie.review %></textarea>
+    <button type="submit">Guardar Cambios</button>
+</form>
+<a href="/user/<%= user.user_id %>/movies">Volver a mis reseñas</a>
+</body>
+</html>

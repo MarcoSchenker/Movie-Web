@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-10-23.00:31:17</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-10-28.02:02:20</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1610,475 +1610,537 @@
     <table id="572" parent="191" name="sqlite_master">
       <System>1</System>
     </table>
-    <column id="573" parent="555" name="country_id">
+    <table id="573" parent="191" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <table id="574" parent="191" name="users"/>
+    <column id="575" parent="555" name="country_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="574" parent="555" name="country_iso_code">
+    <column id="576" parent="555" name="country_iso_code">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="575" parent="555" name="country_name">
+    <column id="577" parent="555" name="country_name">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>3</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="576" parent="555" name="sqlite_autoindex_country_1">
+    <index id="578" parent="555" name="sqlite_autoindex_country_1">
       <ColNames>country_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="577" parent="555">
+    <key id="579" parent="555">
       <ColNames>country_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_country_1</UnderlyingIndexName>
     </key>
-    <column id="578" parent="556" name="department_id">
+    <column id="580" parent="556" name="department_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="579" parent="556" name="department_name">
+    <column id="581" parent="556" name="department_name">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="580" parent="556" name="sqlite_autoindex_department_1">
+    <index id="582" parent="556" name="sqlite_autoindex_department_1">
       <ColNames>department_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="581" parent="556">
+    <key id="583" parent="556">
       <ColNames>department_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_department_1</UnderlyingIndexName>
     </key>
-    <column id="582" parent="557" name="gender_id">
+    <column id="584" parent="557" name="gender_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="583" parent="557" name="gender">
+    <column id="585" parent="557" name="gender">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="584" parent="557" name="sqlite_autoindex_gender_1">
+    <index id="586" parent="557" name="sqlite_autoindex_gender_1">
       <ColNames>gender_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="585" parent="557">
+    <key id="587" parent="557">
       <ColNames>gender_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_gender_1</UnderlyingIndexName>
     </key>
-    <column id="586" parent="558" name="genre_id">
+    <column id="588" parent="558" name="genre_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="587" parent="558" name="genre_name">
+    <column id="589" parent="558" name="genre_name">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="588" parent="558" name="sqlite_autoindex_genre_1">
+    <index id="590" parent="558" name="sqlite_autoindex_genre_1">
       <ColNames>genre_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="589" parent="558">
+    <key id="591" parent="558">
       <ColNames>genre_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_genre_1</UnderlyingIndexName>
     </key>
-    <column id="590" parent="559" name="keyword_id">
+    <column id="592" parent="559" name="keyword_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="591" parent="559" name="keyword_name">
+    <column id="593" parent="559" name="keyword_name">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <index id="592" parent="559" name="sqlite_autoindex_keyword_1">
+    <index id="594" parent="559" name="sqlite_autoindex_keyword_1">
       <ColNames>keyword_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="593" parent="559">
+    <key id="595" parent="559">
       <ColNames>keyword_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_keyword_1</UnderlyingIndexName>
     </key>
-    <column id="594" parent="560" name="language_id">
+    <column id="596" parent="560" name="language_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="595" parent="560" name="language_code">
+    <column id="597" parent="560" name="language_code">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="596" parent="560" name="language_name">
+    <column id="598" parent="560" name="language_name">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>3</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="597" parent="560" name="sqlite_autoindex_language_1">
+    <index id="599" parent="560" name="sqlite_autoindex_language_1">
       <ColNames>language_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="598" parent="560">
+    <key id="600" parent="560">
       <ColNames>language_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_language_1</UnderlyingIndexName>
     </key>
-    <column id="599" parent="561" name="role_id">
+    <column id="601" parent="561" name="role_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="600" parent="561" name="language_role">
+    <column id="602" parent="561" name="language_role">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="601" parent="561" name="sqlite_autoindex_language_role_1">
+    <index id="603" parent="561" name="sqlite_autoindex_language_role_1">
       <ColNames>role_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="602" parent="561">
+    <key id="604" parent="561">
       <ColNames>role_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_language_role_1</UnderlyingIndexName>
     </key>
-    <column id="603" parent="562" name="movie_id">
+    <column id="605" parent="562" name="movie_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="604" parent="562" name="title">
+    <column id="606" parent="562" name="title">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="605" parent="562" name="budget">
+    <column id="607" parent="562" name="budget">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>3</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="606" parent="562" name="homepage">
+    <column id="608" parent="562" name="homepage">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>4</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="607" parent="562" name="overview">
+    <column id="609" parent="562" name="overview">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>5</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="608" parent="562" name="popularity">
+    <column id="610" parent="562" name="popularity">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>6</Position>
       <StoredType>REAL|0s</StoredType>
     </column>
-    <column id="609" parent="562" name="release_date">
+    <column id="611" parent="562" name="release_date">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>7</Position>
       <StoredType>DATE|0s</StoredType>
     </column>
-    <column id="610" parent="562" name="revenue">
+    <column id="612" parent="562" name="revenue">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>8</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="611" parent="562" name="runtime">
+    <column id="613" parent="562" name="runtime">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>9</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="612" parent="562" name="movie_status">
+    <column id="614" parent="562" name="movie_status">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>10</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="613" parent="562" name="tagline">
+    <column id="615" parent="562" name="tagline">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>11</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="614" parent="562" name="vote_average">
+    <column id="616" parent="562" name="vote_average">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>12</Position>
       <StoredType>REAL|0s</StoredType>
     </column>
-    <column id="615" parent="562" name="vote_count">
+    <column id="617" parent="562" name="vote_count">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>13</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <index id="616" parent="562" name="sqlite_autoindex_movie_1">
+    <index id="618" parent="562" name="sqlite_autoindex_movie_1">
       <ColNames>movie_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="617" parent="562">
+    <key id="619" parent="562">
       <ColNames>movie_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_movie_1</UnderlyingIndexName>
     </key>
-    <column id="618" parent="563" name="movie_id">
+    <column id="620" parent="563" name="movie_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="619" parent="563" name="person_id">
+    <column id="621" parent="563" name="person_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="620" parent="563" name="character_name">
+    <column id="622" parent="563" name="character_name">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>3</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="621" parent="563" name="gender_id">
+    <column id="623" parent="563" name="gender_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>4</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="622" parent="563" name="cast_order">
+    <column id="624" parent="563" name="cast_order">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>5</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <foreign-key id="623" parent="563" name="fk_mca_movie">
+    <foreign-key id="625" parent="563" name="fk_mca_movie">
       <ColNames>movie_id</ColNames>
       <RefColNames>movie_id</RefColNames>
       <RefTableName>movie</RefTableName>
     </foreign-key>
-    <foreign-key id="624" parent="563" name="fk_mca_per">
+    <foreign-key id="626" parent="563" name="fk_mca_per">
       <ColNames>person_id</ColNames>
       <RefColNames>person_id</RefColNames>
       <RefTableName>person</RefTableName>
     </foreign-key>
-    <foreign-key id="625" parent="563" name="fk_mca_gender">
+    <foreign-key id="627" parent="563" name="fk_mca_gender">
       <ColNames>gender_id</ColNames>
       <RefColNames>gender_id</RefColNames>
       <RefTableName>gender</RefTableName>
     </foreign-key>
-    <column id="626" parent="564" name="movie_id">
+    <column id="628" parent="564" name="movie_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="627" parent="564" name="company_id">
+    <column id="629" parent="564" name="company_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <foreign-key id="628" parent="564" name="fk_mc_movie">
+    <foreign-key id="630" parent="564" name="fk_mc_movie">
       <ColNames>movie_id</ColNames>
       <RefColNames>movie_id</RefColNames>
       <RefTableName>movie</RefTableName>
     </foreign-key>
-    <foreign-key id="629" parent="564" name="fk_mc_comp">
+    <foreign-key id="631" parent="564" name="fk_mc_comp">
       <ColNames>company_id</ColNames>
       <RefColNames>company_id</RefColNames>
       <RefTableName>production_company</RefTableName>
     </foreign-key>
-    <column id="630" parent="565" name="movie_id">
+    <column id="632" parent="565" name="movie_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="631" parent="565" name="person_id">
+    <column id="633" parent="565" name="person_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="632" parent="565" name="department_id">
+    <column id="634" parent="565" name="department_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>3</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="633" parent="565" name="job">
+    <column id="635" parent="565" name="job">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>4</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <foreign-key id="634" parent="565" name="fk_mcr_movie">
+    <foreign-key id="636" parent="565" name="fk_mcr_movie">
       <ColNames>movie_id</ColNames>
       <RefColNames>movie_id</RefColNames>
       <RefTableName>movie</RefTableName>
     </foreign-key>
-    <foreign-key id="635" parent="565" name="fk_mcr_per">
+    <foreign-key id="637" parent="565" name="fk_mcr_per">
       <ColNames>person_id</ColNames>
       <RefColNames>person_id</RefColNames>
       <RefTableName>person</RefTableName>
     </foreign-key>
-    <foreign-key id="636" parent="565" name="fk_mcr_dept">
+    <foreign-key id="638" parent="565" name="fk_mcr_dept">
       <ColNames>department_id</ColNames>
       <RefColNames>department_id</RefColNames>
       <RefTableName>department</RefTableName>
     </foreign-key>
-    <column id="637" parent="566" name="movie_id">
+    <column id="639" parent="566" name="movie_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="638" parent="566" name="genre_id">
+    <column id="640" parent="566" name="genre_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <foreign-key id="639" parent="566" name="fk_mg_movie">
+    <foreign-key id="641" parent="566" name="fk_mg_movie">
       <ColNames>movie_id</ColNames>
       <RefColNames>movie_id</RefColNames>
       <RefTableName>movie</RefTableName>
     </foreign-key>
-    <foreign-key id="640" parent="566" name="fk_mg_genre">
+    <foreign-key id="642" parent="566" name="fk_mg_genre">
       <ColNames>genre_id</ColNames>
       <RefColNames>genre_id</RefColNames>
       <RefTableName>genre</RefTableName>
     </foreign-key>
-    <column id="641" parent="567" name="movie_id">
+    <column id="643" parent="567" name="movie_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="642" parent="567" name="keyword_id">
+    <column id="644" parent="567" name="keyword_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <foreign-key id="643" parent="567" name="fk_mk_movie">
+    <foreign-key id="645" parent="567" name="fk_mk_movie">
       <ColNames>movie_id</ColNames>
       <RefColNames>movie_id</RefColNames>
       <RefTableName>movie</RefTableName>
     </foreign-key>
-    <foreign-key id="644" parent="567" name="fk_mk_keyword">
+    <foreign-key id="646" parent="567" name="fk_mk_keyword">
       <ColNames>keyword_id</ColNames>
       <RefColNames>keyword_id</RefColNames>
       <RefTableName>keyword</RefTableName>
     </foreign-key>
-    <column id="645" parent="568" name="movie_id">
+    <column id="647" parent="568" name="movie_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="646" parent="568" name="language_id">
+    <column id="648" parent="568" name="language_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="647" parent="568" name="language_role_id">
+    <column id="649" parent="568" name="language_role_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>3</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <foreign-key id="648" parent="568" name="fk_ml_movie">
+    <foreign-key id="650" parent="568" name="fk_ml_movie">
       <ColNames>movie_id</ColNames>
       <RefColNames>movie_id</RefColNames>
       <RefTableName>movie</RefTableName>
     </foreign-key>
-    <foreign-key id="649" parent="568" name="fk_ml_lang">
+    <foreign-key id="651" parent="568" name="fk_ml_lang">
       <ColNames>language_id</ColNames>
       <RefColNames>language_id</RefColNames>
       <RefTableName>language</RefTableName>
     </foreign-key>
-    <foreign-key id="650" parent="568" name="fk_ml_role">
+    <foreign-key id="652" parent="568" name="fk_ml_role">
       <ColNames>language_role_id</ColNames>
       <RefColNames>role_id</RefColNames>
       <RefTableName>language_role</RefTableName>
     </foreign-key>
-    <column id="651" parent="569" name="person_id">
+    <column id="653" parent="569" name="person_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="652" parent="569" name="person_name">
+    <column id="654" parent="569" name="person_name">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="653" parent="569" name="sqlite_autoindex_person_1">
+    <index id="655" parent="569" name="sqlite_autoindex_person_1">
       <ColNames>person_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="654" parent="569">
+    <key id="656" parent="569">
       <ColNames>person_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_person_1</UnderlyingIndexName>
     </key>
-    <column id="655" parent="570" name="company_id">
+    <column id="657" parent="570" name="company_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="656" parent="570" name="company_name">
+    <column id="658" parent="570" name="company_name">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="657" parent="570" name="sqlite_autoindex_production_company_1">
+    <index id="659" parent="570" name="sqlite_autoindex_production_company_1">
       <ColNames>company_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="658" parent="570">
+    <key id="660" parent="570">
       <ColNames>company_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_production_company_1</UnderlyingIndexName>
     </key>
-    <column id="659" parent="571" name="movie_id">
+    <column id="661" parent="571" name="movie_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>1</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="660" parent="571" name="country_id">
+    <column id="662" parent="571" name="country_id">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>2</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <foreign-key id="661" parent="571" name="fk_pc_movie">
+    <foreign-key id="663" parent="571" name="fk_pc_movie">
       <ColNames>movie_id</ColNames>
       <RefColNames>movie_id</RefColNames>
       <RefTableName>movie</RefTableName>
     </foreign-key>
-    <foreign-key id="662" parent="571" name="fk_pc_country">
+    <foreign-key id="664" parent="571" name="fk_pc_country">
       <ColNames>country_id</ColNames>
       <RefColNames>country_id</RefColNames>
       <RefTableName>country</RefTableName>
     </foreign-key>
-    <column id="663" parent="572" name="type">
+    <column id="665" parent="572" name="type">
       <Position>1</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="664" parent="572" name="name">
+    <column id="666" parent="572" name="name">
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="665" parent="572" name="tbl_name">
+    <column id="667" parent="572" name="tbl_name">
       <Position>3</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="666" parent="572" name="rootpage">
+    <column id="668" parent="572" name="rootpage">
       <Position>4</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="667" parent="572" name="sql">
+    <column id="669" parent="572" name="sql">
       <Position>5</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
+    <column id="670" parent="573" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="671" parent="573" name="seq">
+      <Position>2</Position>
+    </column>
+    <column id="672" parent="574" name="user_id">
+      <AutoIncrement>1</AutoIncrement>
+      <Position>1</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="673" parent="574" name="user_username">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <column id="674" parent="574" name="user_name">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <column id="675" parent="574" name="user_email">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <column id="676" parent="574" name="user_password">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <column id="677" parent="574" name="is_admin">
+      <DefaultExpression>0</DefaultExpression>
+      <Position>6</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <index id="678" parent="574" name="sqlite_autoindex_users_1">
+      <ColNames>user_username</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <index id="679" parent="574" name="sqlite_autoindex_users_2">
+      <ColNames>user_email</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <key id="680" parent="574">
+      <ColNames>user_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="681" parent="574">
+      <ColNames>user_username</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_users_1</UnderlyingIndexName>
+    </key>
+    <key id="682" parent="574">
+      <ColNames>user_email</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_users_2</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

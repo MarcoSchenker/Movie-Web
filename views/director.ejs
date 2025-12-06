@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        .inicio {
+            position: absolute;
+            left: 40px;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            background-color: #0078d4;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .inicio:hover {
+            background-color: #0056b3;
+            position: absolute;
+            left: 40px;
+            top: 20px;
+        }
+        .logo{
+            width: 60%;
+            height: auto;
+        }
+        #inicio {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #inicio a {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #0078d4;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #inicio a:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+    </style>
 <head>
     <title>Películas dirigidas por <%= directorName %></title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <header>
+        <a class="inicio" href="/">
+            <img class="logo" src="\imgs\casona.png" alt="Inicio" >
+        </a>
+    </header>
 <h2>Películas dirigidas por <%= directorName %></h2>
 
 <% if (directingMovies.length > 0) { %>

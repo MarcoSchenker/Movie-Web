@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<style>
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        color: #333333;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1 {
+        font-size: 36px;
+        color: #333333;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        max-width: 600px;
+    }
+    li {
+        background-color: #ffffff;
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #inicio {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    #inicio a {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: #0078d4;
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #inicio a:hover {
+        background-color: #0056b3;
+        transform: translateY(-3px);
+    }
+
+    form {
+        margin-left: auto;
+        padding: 2px;
+        transition: scale 0.3s ease;
+    }
+    .link{
+        text-decoration: none;
+        color: #0078d4;
+    }
+
+    form:hover{
+        scale: 1.1;
+    }
+    .success-message {
+        background-color: #fef2f2;
+        color: brown;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #f87171;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+</head>
+<body>
+<div class="container">
+    <% if (successMessage) { %>
+        <div class="success-message">
+            <%= successMessage %>
+        </div>
+    <% } %>
+        <h1>Lista de Usuarios</h1>
+        <ul>
+            <% users.forEach(user => { %>
+                <li>
+                    <strong>
+                        <!-- Enlace al perfil del usuario -->
+                        <a href="/users/<%= user.user_id %>/profile" class = link><%= user.user_name %></a>
+                    </strong> - <%= user.user_username %> - <%= user.user_email %>
+
+                    <!-- Botón para eliminar solo visible para administradores -->
+                    <form action="/users/<%= user.user_id %>/delete" method="POST" style="display:inline;">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+<div id = "inicio"><a href="/">Inicio</a></div>
+</body>
+</html>

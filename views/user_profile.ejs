@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 0.2em;
+            text-align: center;
+        }
+        .user-details {
+            text-align: center;
+            margin-bottom: 1.5em;
+        }
+        .user-details p {
+            margin: 0.3em 0;
+            color: #666;
+        }
+
+        /* Reseñas */
+        h2 {
+            font-size: 1.8em;
+            color: #444;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.2em;
+            margin-bottom: 1em;
+        }
+        .review-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .favorite-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .favorite-item{
+            background: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            padding: 1em;
+            transition: background 0.3s ease;
+        }
+        .favorite-title{
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #333;
+        }
+        .favorite-item:hover {
+            background: #f1f1ff;
+        }
+        .review-item {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            padding: 1em;
+            transition: background 0.3s;
+        }
+        .review-item:hover {
+            background: #f1f1ff;
+        }
+        .review-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+        .review-rating {
+            font-size: 1em;
+            color: #ff9900;
+            font-weight: bold;
+        }
+        .review-text {
+            font-size: 0.95em;
+            color: #555;
+            margin-top: 0.5em;
+        }
+        .inicio {
+            position: absolute;
+            left: 40px;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            background-color: #0078d4;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            overflow: hidden;
+        }
+        .inicio:hover {
+            background-color: #0056b3;
+            position: absolute;
+            left: 40px;
+            top: 20px;
+        }
+        .logo{
+            width: 60%;
+            height: auto;
+        }
+
+        /* Botón de regreso */
+        .back-button {
+            display: block;
+            margin: 1.5em auto 0 auto;
+            padding: 0.8em 1.5em;
+            background: #0078d4;
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-align: center;
+            max-width: 250px;
+        }
+        .back-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<a class="inicio" href="/">
+    <img class="logo" src="\imgs\casona.png" alt="Inicio" >
+</a>
+<div class="container">
+    <h1>Perfil de <%= user.user_name %></h1>
+    <div class="user-details">
+        <p><strong>Nombre de usuario:</strong> <%= user.user_username %></p>
+        <p><strong>Email:</strong> <%= user.user_email %></p>
+    </div>
+
+    <h2>Reseñas del Usuario</h2>
+    <% if (reviews.length > 0) { %>
+        <ul class="review-list">
+            <% reviews.forEach(review => { %>
+                <li class="review-item">
+                    <div class="review-title">🎬 <%= review.movie_title %></div>
+                    <div class="review-rating">⭐ Puntaje: <%= review.rating %></div>
+                    <div class="review-text"><%= review.review %></div>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>Este usuario no ha realizado ninguna reseña.</p>
+    <% } %>
+    <h2>Películas favoritas del Usuario</h2>
+    <% if (favorites.length > 0) { %>
+        <ul class="favorite-list">
+            <% favorites.forEach(favorite => { %>
+                <li class="favorite-item">
+                    <div class="favorite-title">🎬 <%= favorite.favorite_title %></div>
+                    <p><strong>Fecha de lanzamiento:</strong> <%= favorite.release_date %></p>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>Este usuario no tiene películas favoritas.</p>
+    <% } %>
+    <% if (isAdmin){ %>
+        <a href="/users" class="back-button">← Volver a la lista de usuarios</a>
+    <% } %>
+</div>
+</body>
+</html>

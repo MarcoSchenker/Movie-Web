@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        label, input {
+            display: flex;
+            width: 95%;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            align-content: center;
+        }
+        button {
+            width: 50%;
+            padding: 10px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .inicio {
+            position: absolute;
+            left: 40px;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            background-color: #0078d4;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .inicio:hover {
+            background-color: #0056b3;
+            position: absolute;
+            left: 40px;
+            top: 20px;
+        }
+
+        .logo{
+            width: 60%;
+            height: auto;
+        }
+
+        .signup-link {
+            margin-top: 15px;
+        }
+
+        /* Estilo del mensaje de error */
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="inicio" href="/">
+            <img class="logo" src="\imgs\casona.png" alt="Inicio" >
+        </a>
+    </header>
+    <form action="/login" method="POST">
+        <h2>Iniciar Sesión</h2>
+
+        <% if (typeof errorMessage !== 'undefined') { %>
+            <div class="error-message" style="color: red;">
+                <%= errorMessage %>
+            </div>
+        <% } %>
+
+        <label for="username">Nombre de Usuario:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Iniciar Sesión</button>
+        
+        <p class="signup-link">¿No tienes una cuenta? <a href="/signup">Regístrate aquí</a>.</p>
+    </form>
+</body>
+</html>
